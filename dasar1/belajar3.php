@@ -8,4 +8,9 @@ echo "Ini "."teks "."yang "."dibuat "."terpisah.";
 print "<h2>Belajar PHP !</h2>";
 print "Hello world!<br>";
 print "Belajar mecetak teks di PHP!<br>";
+ 
+//menggunakan echo
+$txt = "armeliadwi.wordpress.com";
+echo "<br>Aku belajar pemrograman PHP di " . $txt . "<br>";
+ 
 ?>
