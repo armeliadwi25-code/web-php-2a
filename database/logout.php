@@ -8,10 +8,13 @@ if(!isset($_SESSION)) {
 $_SESSION['username']=NULL;
 unset($_SESSION['username']);
  
-//hancurkan data session
+//hancur data
 session_destroy();
  
+//hapus cookie
+setcookie('username','',time()-60);
+ 
 //kembali ke login
-header("location: login.php");
+header("location: login.php")
  
 ?>
