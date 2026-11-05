@@ -1,20 +1,20 @@
 <?php
 //memanggil file koneksi
 include('koneksi.php');
- 
+
 //ambil data dari database
 $query="SELECT * FROM pengurus ORDER BY id ASC";
- 
+
 $data=mysqli_query($conn,$query);
 ?>
- 
+
 <!DOCTYPE html>
 <html>
 <head>
     <title>Data Pengurus</title>
 </head>
 <body>
- 
+
 <h1>Data Pengurus</h1>
 <table border="1">
     <tr>
@@ -34,9 +34,28 @@ $data=mysqli_query($conn,$query);
         <td><?php echo $row['gender']; ?></td>
         <td><?php echo $row['gaji']; ?></td>
     </tr>
-<?php 
+<?php
  }
 ?>
 </table>
+
+<hr>
+
+<h1>Input Data</h1>
+
+<form method="post" action="simpan_data.php">
+    <p>ID <input type="text" name="id" required="required"></p>
+    <p>Nama <input type="text" name="nama"></p>
+    <p>Alamat <textarea name="alamat"></textarea></p>
+    <p>Gender <input type="radio" name="gender" value="L"> Laki-laki
+    <input type="radio" name="gender" value="P"> Perempuan
+    </p>
+    <p>Gaji <input type="number" name="gaji"></p>
+    <p>
+        <button type="submit">Simpan</button>
+        <button type="reset">Batal</button>
+    </p>
+</form>
+
 </body>
 </html>
