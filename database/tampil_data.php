@@ -23,6 +23,7 @@ $data=mysqli_query($conn,$query);
         <th>Alamat</th>
         <th>Gender</th>
         <th>Gaji</th>
+        <th>Aksi</th>
     </tr>
 <?php
  while($row=mysqli_fetch_assoc($data)) {
@@ -33,6 +34,9 @@ $data=mysqli_query($conn,$query);
         <td><?php echo $row['alamat']; ?></td>
         <td><?php echo $row['gender']; ?></td>
         <td><?php echo $row['gaji']; ?></td>
+        <td>
+            <a href="edit_data.php?id=<?php echo $row['id']; ?>">Edit</a>
+        </td>
     </tr>
 <?php
  }
