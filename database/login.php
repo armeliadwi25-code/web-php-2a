@@ -6,7 +6,7 @@
 <body>
 <h1 align="center">Halaman Login</h1>
 <form method="post" action="aksi_login.php">
-     
+
     <table align="center">
         <tr>
             <th>Username</th>
@@ -24,8 +24,8 @@
             </td>
         </tr>
     </table>
- 
+
 </form>
- 
+
 </body>
 </html>
