@@ -26,7 +26,7 @@ $data=mysqli_query($conn,$query);
         <th>Aksi</th>
     </tr>
 <?php
- while($row=mysqli_fetch_assoc($data)) {
+while($row=mysqli_fetch_assoc($data)) {
 ?>
     <tr>
         <td><?php echo $row['id']; ?></td>
@@ -37,3 +37,15 @@ $data=mysqli_query($conn,$query);
         <td>
             <a href="edit_data.php?id=<?php echo $row['id']; ?>">Edit</a> |
             <a href="hapus_data.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Yakin nih?')">Delete</a>
+        </td>
+    </tr>
+<?php
+}
+?>
+</table>
+
+<hr>
+
+<h1>Input Data</h1>
+
+<form method="post"
