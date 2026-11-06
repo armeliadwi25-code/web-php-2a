@@ -13,12 +13,12 @@ if(empty($_SESSION['username'])) {
 //koneksi
 include('koneksi.php');
 
-//ambil data foto beserta nama pengurus
-$query = "SELECT tb_foto.*, pengurus.nama
-          FROM tb_foto
-          JOIN pengurus ON tb_foto.id = pengurus.id
-          ORDER BY tb_foto.id_foto ASC";
-$data = mysqli_query($conn, $query);
+//ambil data gambar beserta nama pengurus
+$query = "SELECT tb_gambar.*, pengurus.nama
+          FROM tb_gambar
+          LEFT JOIN pengurus ON tb_gambar.id_pengurus = pengurus.id
+          ORDER BY tb_gambar.id_gambar ASC";
+$data = mysqli_query($conn, $query) or die(mysqli_error($conn));
 ?>
 
 <!DOCTYPE html>
@@ -42,11 +42,11 @@ $data = mysqli_query($conn, $query);
 while($row = mysqli_fetch_assoc($data)) {
 ?>
     <tr>
-        <td><?php echo $row['id_foto']; ?></td>
+        <td><?php echo $row['id_gambar']; ?></td>
         <td><?php echo $row['nama']; ?></td>
-        <td><img src="foto/<?php echo $row['nama_file']; ?>" width="100"></td>
+        <td><img src="foto/<?php echo $row['gambar']; ?>" width="50px" height="50px"></td>
         <td>
-            <a href="hapus_foto.php?id=<?php echo $row['id_foto']; ?>" onclick="return confirm('Yakin nih?')">Delete</a>
+            <a href="hapus_foto.php?id_gambar=<?php echo $row['id_gambar']; ?>" onclick="return confirm('Yakin nih?')">Hapus</a>
         </td>
     </tr>
 <?php
